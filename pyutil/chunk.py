@@ -1,12 +1,5 @@
 from itertools import islice
-
-########################################################
-#                                                      #
-# The following functions operate on Python sequences. #
-# (lists, tuples, sets, dictionaries and strings)      #
-#                                                      #
-########################################################
-                                      
+                       
 def chunk(seq, n):
   '''
   Description
@@ -31,17 +24,30 @@ def chunk(seq, n):
   >>> chunk(lst, 3)
   -> [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]] <generator>
   '''
+  if not (
+    type(seq) is list
+    or type(seq) is tuple
+    or type(seq) is set
+    or type(seq) is str
+  ):
+    raise TypeError('param \'seq\' must be a list, tuple, set, or string')
+
   if not type(n) is int:
     raise TypeError('param \'n\' must be an integer: 0 <= n <= sys.maxsize')
 
+  if n < 0:
+    raise ValueError('param \'n\' must be an integer: 0 <= n <= sys.maxsize')
+
+  if n == 0:
+    yield seq
+    return
 
   start = 0
   end = n
 
-  while end < len(seq):
+  while n != 0 and end < len(seq):
     yield list(map(lambda x: x, islice(seq, start, end)))
     start = start + n
     end = end + n
   
   yield list(map(lambda x: x, islice(seq, start, end)))
-
