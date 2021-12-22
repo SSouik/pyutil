@@ -966,28 +966,28 @@ def remove_all_at(seq, remove_indices):
       yield seq[index]
     index = index + 1
 
-def slice(seq, start = 0, end = None):
+def subset(seq, start = 0, end = None):
   '''
   Description
   ----------
-  Create a slice of the sequence.
+  Create a subset of the sequence.
 
   Parameters
   ----------
-  seq : (list or tuple or set or dict) - sequence of values to slice\n
+  seq : (list or tuple or set or dict) - sequence of values to subset\n
   start : int, optional - start index (default is 0)\n
   end : int, optional - end index (not included) (default is None = len(seq))
 
   Returns
   ----------
-  generator - generator of sliced values
+  generator - generator of the subset of values
 
   Examples
   ----------
   >>> lst = [1, 2, 3, 4, 5, 6, 7]
-  >>> slice(lst, 2)
+  >>> subset(lst, 2)
   -> [3, 4, 5, 6, 7] <generator>
-  >>> slice(lst, 3, 5)
+  >>> subset(lst, 3, 5)
   -> [4, 5] <generator>
   '''
   if end == None:

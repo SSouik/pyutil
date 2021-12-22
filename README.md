@@ -60,7 +60,7 @@ from pyutil import chunk, drop, groupby
 | [remove_all](#remove_all) | seq remove_values | generator | Remove values from the sequence. |
 | [remove_at](#remove_at) | seq, *remove_indices | generator | Remove values at specified indices from the sequence. |
 | [remove_all_at](#remove_all_at) | seq, remove_indices | generator |Remove values at specified indices from the sequence. |
-| [slice](#slice) | seq, start = 0, end = None | generator | Create a slice of the sequence. |
+| [subset](#subset) | seq, start = 0, end = None | generator | Create a subset of the sequence. |
 | [some](#some) | seq, func | bool | Return True if some value in the sequence satisfies the predicate function. Returns False otherwise. |
 | [tail](#tail) | seq | generator | Return all values in the sequence except the first. |
 | [assign](#assign) | target, *sources | dict | Assign all values from the sources into the target dictioanary. Mutates target dictionary. |
@@ -315,10 +315,10 @@ from pyutil import chunk, drop, groupby
 -> [2, 4] # generator
 ```
 
-#### slice
+#### subset
 ```
 >>> lst = [1, 2, 3, 4, 5]
->>> slice(lst, 1, 3)
+>>> subset(lst, 1, 3)
 -> [2, 3]
 ```
 
