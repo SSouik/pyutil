@@ -17,103 +17,6 @@ from itertools import islice
 # (lists, tuples, sets, dictionaries and strings)      #
 #                                                      #
 ########################################################
-                                      
-def chunk(seq, n):
-  '''
-  Description
-  ----------
-  Create a generator of values split into 'n' length.\n
-  If the sequence cannot be split evenly, then the\n 
-  last group will be the remaining values in the sequence.
-
-  Parameters
-  ----------
-  seq : (list or tuple or set or string) - sequence to chunk values of\n
-  n : int - number to group by
-
-  Returns
-  ----------
-  generator - a generator of lists of length 'n'\n 
-  containing the original sequence's values
-
-  Example
-  ----------
-  >>> lst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  >>> chunk(lst, 3)
-  -> [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]] <generator>
-  '''
-  if not type(n) is int:
-    raise TypeError('param \'n\' must be an integer: 0 <= n <= sys.maxsize')
-
-
-  start = 0
-  end = n
-
-  while end < len(seq):
-    yield list(map(lambda x: x, islice(seq, start, end)))
-    start = start + n
-    end = end + n
-  
-  yield list(map(lambda x: x, islice(seq, start, end)))
-
-def compact(seq):
-  '''
-  Description
-  ----------
-  Remove all falsey values from the sequence.
-
-  Parameters
-  ----------
-  seq : (list or tuple or set) - sequence to remove falsey values from
-
-  Returns
-  ----------
-  python 2:
-  list - a list with all falsey values removed\n
-
-  python 3:
-  generator - a generator with all falsey values removed
-
-  Examples
-  ----------
-  python 2:
-  >>> lst = [1, 2, 3, [], 0, 'hello', False, '']
-  >>> compact(lst)
-  -> [1, 2, 3, 'hello']
-
-  python 3:
-  >>> lst = [1, 2, 3, [], 0, 'hello', False, '']
-  >>> compact(lst)
-  -> [1, 2, 3, 'hello'] <generator>
-  '''
-  return filter(bool, seq)
-
-def concat(*values):
-  '''
-  Description
-  ----------
-  Creates a generator concatenating all the lists and/or values.
-
-  Parameters
-  ----------
-  *values : any - values to concatenate into one list
-
-  Returns
-  ----------
-  generator - generator containing all the values passed as parameters
-
-  Examples
-  ----------
-  >>> lst = [1, 2, 3]
-  >>> concat(lst, [4, 5], 'a', ['b', 'c'], 123, [[5]])
-  -> [1, 2, 3, 4, 5, 'a', 'b', 'c', 123, [5]] <generator>
-  '''
-  for val in values:
-    try:
-      for item in val:
-        yield item
-    except:
-      yield val
 
 def contains(seq, value):
   '''
@@ -1063,28 +966,28 @@ def remove_all_at(seq, remove_indices):
       yield seq[index]
     index = index + 1
 
-def slice(seq, start = 0, end = None):
+def subset(seq, start = 0, end = None):
   '''
   Description
   ----------
-  Create a slice of the sequence.
+  Create a subset of the sequence.
 
   Parameters
   ----------
-  seq : (list or tuple or set or dict) - sequence of values to slice\n
+  seq : (list or tuple or set or dict) - sequence of values to subset\n
   start : int, optional - start index (default is 0)\n
   end : int, optional - end index (not included) (default is None = len(seq))
 
   Returns
   ----------
-  generator - generator of sliced values
+  generator - generator of the subset of values
 
   Examples
   ----------
   >>> lst = [1, 2, 3, 4, 5, 6, 7]
-  >>> slice(lst, 2)
+  >>> subset(lst, 2)
   -> [3, 4, 5, 6, 7] <generator>
-  >>> slice(lst, 3, 5)
+  >>> subset(lst, 3, 5)
   -> [4, 5] <generator>
   '''
   if end == None:
