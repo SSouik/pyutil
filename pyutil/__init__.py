@@ -3,6 +3,7 @@
 from .pyutil import *
 from .chunk import *
 from .compact import *
+from .concat import *
 
 name = 'pyutil'
 

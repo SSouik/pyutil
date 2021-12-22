@@ -18,65 +18,6 @@ from itertools import islice
 #                                                      #
 ########################################################
 
-def compact(seq):
-  '''
-  Description
-  ----------
-  Remove all falsey values from the sequence.
-
-  Parameters
-  ----------
-  seq : (list or tuple or set) - sequence to remove falsey values from
-
-  Returns
-  ----------
-  python 2:
-  list - a list with all falsey values removed\n
-
-  python 3:
-  generator - a generator with all falsey values removed
-
-  Examples
-  ----------
-  python 2:
-  >>> lst = [1, 2, 3, [], 0, 'hello', False, '']
-  >>> compact(lst)
-  -> [1, 2, 3, 'hello']
-
-  python 3:
-  >>> lst = [1, 2, 3, [], 0, 'hello', False, '']
-  >>> compact(lst)
-  -> [1, 2, 3, 'hello'] <generator>
-  '''
-  return filter(bool, seq)
-
-def concat(*values):
-  '''
-  Description
-  ----------
-  Creates a generator concatenating all the lists and/or values.
-
-  Parameters
-  ----------
-  *values : any - values to concatenate into one list
-
-  Returns
-  ----------
-  generator - generator containing all the values passed as parameters
-
-  Examples
-  ----------
-  >>> lst = [1, 2, 3]
-  >>> concat(lst, [4, 5], 'a', ['b', 'c'], 123, [[5]])
-  -> [1, 2, 3, 4, 5, 'a', 'b', 'c', 123, [5]] <generator>
-  '''
-  for val in values:
-    try:
-      for item in val:
-        yield item
-    except:
-      yield val
-
 def contains(seq, value):
   '''
   Description
