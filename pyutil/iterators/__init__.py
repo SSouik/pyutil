@@ -11,3 +11,4 @@ from .chunk import *
 from .compact import *
 from .concat import *
 from .contains import *
+from .countby import *
