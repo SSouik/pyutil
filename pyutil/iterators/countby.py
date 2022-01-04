@@ -46,6 +46,9 @@ def countby(seq, key):
     >>> countby(people, 'gender')
     -> {'male': 3, 'female': 2}
     """
+    if not isinstance(seq, (list, tuple, set)):
+        raise TypeError("param 'seq' must be a list, tuple, or set")
+
     dct = {}
     get = dct.get
     if callable(key):
