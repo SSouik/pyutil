@@ -1,3 +1,4 @@
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 # pyutil
 
 pyutil is a functional library which provides various methods that operate on lists, tuples, sets, dictionaries, and strings.
@@ -7,6 +8,120 @@ the python modules [itertools](https://docs.python.org/2/library/itertools.html)
 
 ## Version
 1.0.0
+
+## Table of Contents
+* [Getting Started](#getting-started)
+* [Linting](#linting)
+    * [Lint Check](#lint-check)
+    * [Code Formatting](#code-formatting)
+* [Testing](#testing)
+    * [Unit Test](#unit-tests)
+    * [Coverage](#coverage)
+
+<br/>
+
+## Getting Started
+Local development can be done with any version of Python3 after `3.4` but the preferred version is `3.10`
+1. Set up Python3 virtual environment
+    ```bash
+    python3 -m venv .venv
+    ```
+
+2. Activate the virtual environment
+
+    Linux/macOS
+    ```bash
+    source .venv/bin/activate
+    ```
+    Windows
+    ```powershell
+    .venv/Scripts/activate
+    ```
+
+3. Install dependencies
+    ```bash
+    python -m pip install -r requirements.txt
+    ```
+
+<br/>
+
+## Linting
+### Lint Check
+This project uses [pylint](https://pylint.org/) to lint Python source files
+
+Linting Python files
+```bash
+python -m pylint pyutil --ignore=pyutil.py --fail-under=10.0 # pyutil.py is ignored for now until more refactoring is done
+```
+
+<br/>
+
+### Code Formatting
+Fixing lint errors and warnings can be annoying and cumbersome, so for this project, [black](https://pypi.org/project/black/) is the recommended code formatter.
+
+Install black
+```bash
+python -m pip install black
+```
+
+Format multiple files under a directory
+```bash
+python -m black <dir> 
+```
+
+Format a single file
+```bash
+python -m black <path-to-file>
+```
+
+Format a multiple files
+```bash
+python -m black <path-to-file> <path-to-file-2>
+```
+
+<br/>
+
+## Testing
+### Unit Tests
+This project uses [pytest](https://docs.pytest.org/en/6.2.x/) for all unit tests.
+
+Running all tests
+```bash
+python -m pytest tests
+```
+> Add `-v` to see the verbose output
+
+Running an individual test file
+```bash
+python -m pytest tests/<test_file_name>.py
+```
+> Example: `python -m pytest tests/chunk_test.py`
+
+Running an individual test
+```bash
+python -m pytest tests/<test_file_name>.py::<test_name>
+```
+> Example: `python -m pytest tests/chunk_test.py::test_chunk_when_seq_is_list`
+
+<br/>
+
+### Coverage
+Coverage testing is done by using [coverage](https://coverage.readthedocs.io/en/6.2/) python package.
+
+Running coverage tests
+```bash
+coverage run -m pytest tests
+```
+> Add `-v` to see the verbose output
+
+Generate the coverage report
+```bash
+coverage report -m
+```
+
+> Coverage configuration is found at `.coveragerc`
+
+<br/>
 
 ## Importing
 
