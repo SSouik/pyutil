@@ -10,8 +10,8 @@
 '''
 
 from itertools import islice
-from .concat import concat
-from .contains import contains
+from .iterators.concat import concat
+from .iterators.contains import contains
 
 ########################################################
 #                                                      #

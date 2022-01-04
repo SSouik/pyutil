@@ -1,5 +1,5 @@
 import pytest
-from pyutil.chunk import chunk
+from pyutil import chunk
 
 
 def test_chunk_when_seq_is_list():
