@@ -11,7 +11,6 @@
 
 from itertools import islice
 from .iterators.concat import concat
-from .iterators.contains import contains
 
 ########################################################
 #                                                      #
@@ -20,92 +19,6 @@ from .iterators.contains import contains
 #                                                      #
 ########################################################
 
-def countby(seq, key):
-  '''
-  Description
-  ----------
-  Create a dictionary with keys composed of the return value of the funcion/key\n
-  applied to each item in the sequence. The value for each key is the number of times\n
-  each key was returned.
-
-  Parameters
-  ----------
-  seq : (list or tuple or set) - sequence to iterate\n
-  key : (callable or dictionary key) - callable to apply each iteration or key to extract\n 
-  from each dictionary per iteration
-
-  Returns
-  ----------
-  dict : a dictionary containing keys returned from each iteration and the number of times it was returned
-  
-  Examples
-  ----------
-  >>> def even_odd(x):
-  ...   if x % 2 == 0:
-  ...     return 'even'
-  ...   return 'odd'
-  
-  >>> lst = [1, 2, 3, 4, 5, 6, 7]
-  >>> countby(lst, even_odd)
-  -> {'even': 3, 'odd': 4}
-
-  >>> people = [
-  ... {'name': 'Sam' 'gender': 'male'},
-  ... {'name': 'John' 'gender': 'male'},
-  ... {'name': 'Jane' 'gender': 'female'},
-  ... {'name': 'Chase' 'gender': 'male'},
-  ... {'name': 'Melanie' 'gender': 'female'}]
-  >>> countby(people, 'gender')
-  -> {'male': 3, 'female': 2}
-  '''
-  dct = {}
-  get = dct.get
-  if callable(key):
-    for item in seq:
-      val = key(item)
-      if get(val) != None:
-        dct[val] = dct[val] + 1
-      else:
-        dct[val] = 1
-  else:
-    for item in seq:
-      val = item[key]
-      if get(val) != None:
-            dct[val] = dct[val] + 1
-      else:
-        dct[val] = 1
-  return dct
-
-def difference(seq, *exclude_seqs):
-  '''
-  Description
-  ----------
-  Create a generator with all the values in the sequence that are unique.
-
-  Parameters
-  ----------
-  seq : (list or tuple or set) - sequence to iterate over\n
-  *exclude_seqs : (list or tuple or set) - sequences of values to exclude
-
-  Returns
-  ----------
-  generator - a generator with all unique values
-
-  Example
-  ----------
-  >>> lst = [1, 2, 3, 4, 5]
-  >>> difference(lst, [1, 2], [5, 6, 7])
-  -> [3, 4] <generator>
-  '''
-  for item in seq:
-    exclude = False
-    for exclude_vals in exclude_seqs:
-      if contains(exclude_vals, item):
-        exclude = True
-        break
-    if not exclude:
-      yield item
-  
 def drop(lst, n = 1):
   '''
   Description

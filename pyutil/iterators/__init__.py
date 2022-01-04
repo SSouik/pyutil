@@ -12,3 +12,4 @@ from .compact import *
 from .concat import *
 from .contains import *
 from .countby import *
+from .difference import *
