@@ -1,4 +1,4 @@
-from pyutil.concat import concat
+from pyutil import concat
 
 
 def test_concat_with_empty_list():

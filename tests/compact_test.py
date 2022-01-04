@@ -1,5 +1,5 @@
 import pytest
-from pyutil.compact import compact
+from pyutil import compact
 
 
 def test_compact_with_false():

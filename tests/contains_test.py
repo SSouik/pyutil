@@ -1,5 +1,5 @@
 import pytest
-from pyutil.contains import contains
+from pyutil import contains
 
 
 def test_contains_with_empty_list():

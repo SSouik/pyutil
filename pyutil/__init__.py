@@ -9,7 +9,4 @@ The module was inspired by the JavaScript library lodash and Python
 modules itertools and toolz.
 """
 from .pyutil import *
-from .chunk import *
-from .compact import *
-from .concat import *
-from .contains import *
+from .iterators import *
