@@ -1,0 +1,4 @@
+[tool.diff_cover]
+compare_branch = "origin/main"
+quiet = false
+fail_under = 100
