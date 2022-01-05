@@ -1,4 +1,8 @@
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Lint](https://github.com/SSouik/pyutil/actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/SSouik/pyutil/actions/workflows/lint.yml)
+[![Unit Tests](https://github.com/SSouik/pyutil/actions/workflows/unit-tests.yml/badge.svg?branch=main)](https://github.com/SSouik/pyutil/actions/workflows/unit-tests.yml)
+[![Coverage](https://github.com/SSouik/pyutil/actions/workflows/coverage.yml/badge.svg?branch=main)](https://github.com/SSouik/pyutil/actions/workflows/coverage.yml)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 # pyutil
 
 pyutil is a functional library which provides various methods that operate on lists, tuples, sets, dictionaries, and strings.
@@ -17,6 +21,7 @@ the python modules [itertools](https://docs.python.org/2/library/itertools.html)
 * [Testing](#testing)
     * [Unit Test](#unit-tests)
     * [Coverage](#coverage)
+    * [Diff Coverage](#diff-coverage)
 
 <br/>
 
@@ -119,7 +124,48 @@ Generate the coverage report
 coverage report -m
 ```
 
-> Coverage configuration is found at `.coveragerc`
+Coverage report HTML
+```bash
+coverage html
+```
+> The HTML report can be found at `tests/coverage/html`
+
+Coverage report XML
+```bash
+coverage xml
+```
+> The XML report can be found at `tests/coverage/coverage.xml`
+
+Coverage report JSON
+```bash
+coverage json
+```
+> The JSON report can be found at `tests/coverage/coverage.json`
+
+**Coverage configuration is found at `.coveragerc`**
+
+<br/>
+
+### Diff Coverage
+If you would like to test the coverage on just your changes compared to `origin/main`, you can use the package [diff_cover](https://pypi.org/project/diff-cover/) to do so.
+
+1. First install `tomli` if you do not already have it
+    ```bash
+    python -m pip install tomli
+    ```
+
+2. Run the coverage tests then generate an XML report
+    * Both commands are shown above in the [Coverage](#coverage) section
+
+3. Run coverage on the diff
+    ```bash
+    diff-cover tests/coverage/coverage.xml --config-file diff.coverage.toml
+    ```
+
+You can also write the report to a **.html**, **.json**, or **.md** file by adding one of the following:
+* `--html-report <html-file>`
+* `--json-report <json-file>`
+* `--markdown-report <md-file>`
 
 <br/>
 
