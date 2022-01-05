@@ -45,24 +45,47 @@ jobs:
   
   coverage:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version:
-        - '2.x'
-        - '3.x'
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python ${{ matrix.python-version }}
+        with:
+          fetch-depth: 0
+      - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: 3.x
+      - name: Fetch main branch
+        run: |
+          git fetch origin main
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install tomli
       - name: Coverage test
         run: |
           coverage run -m pytest tests -v
-      - name: Coverage report
+      - name: Generate coverage report
+        if: always()
         run: |
-          coverage report -m
+          coverage xml
+      - name: Check diff coverage
+        if: always()
+        run: |
+          diff-cover tests/coverage/coverage.xml --config-file diff.coverage.toml --markdown-report diff-report.md
+      - name: Write diff coverage report to PR comment
+        if: always()
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          result-encoding: string
+          script: |
+            const fs = require('fs');
+
+            const data = fs.readFileSync('./diff-report.md', { encoding: 'utf8' });
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: data
+            })
