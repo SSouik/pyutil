@@ -18,35 +18,6 @@ from .iterators.concat import concat
 # (lists, tuples, sets, dictionaries and strings)      #
 #                                                      #
 ########################################################
-  
-def drop_right(lst, n = 1):
-  '''
-  Description
-  ----------
-  Drop 'n' number of values in the list starting at the end.\n
-  Mutates the list.
-
-  Parameters
-  ----------
-  lst : list - list to drop values from\n
-  n : int, optional - number of values to drop (default is 1)
-
-  Returns
-  ----------
-  None
-
-  Examples
-  ----------
-  >>> lst = [1, 2, 3, 4, 5, 6, 7]
-  >>> drop_right(lst)
-  >>> lst
-  -> [1, 2, 3, 4, 5, 6]
-  >>> lst = [1, 2, 3, 4, 5, 6, 7]
-  >>> drop_right(lst, 4)
-  >>> lst
-  -> [1, 2, 3]
-  '''
-  lst[:] = list(islice(lst, 0, len(lst) - n))
 
 def drop_right_while(lst, func):
   '''

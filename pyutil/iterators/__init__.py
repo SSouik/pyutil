@@ -14,3 +14,4 @@ from .contains import *
 from .countby import *
 from .difference import *
 from .drop import *
+from .drop_right import *
