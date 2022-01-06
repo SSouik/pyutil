@@ -4,7 +4,7 @@ Author Samuel Souik.
 License MIT.
 
 This module contains methods which iterate over lists, sets, tuples, dictionaries
-and string
+and strings
 """
 
 from .chunk import *
@@ -13,3 +13,4 @@ from .concat import *
 from .contains import *
 from .countby import *
 from .difference import *
+from .drop import *
