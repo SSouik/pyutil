@@ -3,7 +3,7 @@ Author Samuel Souik
 
 License MIT.
 
-drop.py
+drop_right.py
 """
 
 from itertools import islice
