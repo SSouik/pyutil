@@ -19,43 +19,6 @@ from .iterators.concat import concat
 #                                                      #
 ########################################################
 
-def fill(seq, value, start = 0, end = None):
-  '''
-  Description
-  ----------
-  Fill the sequence with a value.
-
-  Parameters
-  ----------
-  seq : (list or tuple or set or string) - sequence to fill\n
-  value : any - value to fill the sequence with\n
-  start : int, optional - starting index (default is 0)\n
-  end : int, optional - ending index (not included) (default vlaue is None = len(seq))
-  Returns
-  ----------
-  generator - a generator with the sequence filled
-
-  Examples
-  ----------
-  >>> lst = [1, 2, 3, 4, 5]
-  >>> fill(lst, '*')
-  -> ['*', '*', '*', '*', '*'] <generator>
-  >>> fill(lst, -1, 1, 3)
-  -> [1, -1, -1, 4, 5]
-  '''
-  if end == None:
-    end = len(seq)
-  
-  lst1 = islice(seq, 0, start)
-  lst3 = islice(seq, end, len(seq))
-
-  lst2 = []
-  append = lst2.append
-  while start < end:
-    append(value)
-    start = start + 1
-  return concat(lst1, lst2, lst3)
-
 def find(seq, func, start = 0, end = None):
   '''
   Description

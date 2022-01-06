@@ -3,7 +3,7 @@ Author Samuel Souik
 
 License MIT.
 
-chunk.py
+every.py
 """
 
 

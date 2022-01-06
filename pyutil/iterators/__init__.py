@@ -18,3 +18,4 @@ from .drop_right import *
 from .drop_right_while import *
 from .drop_while import *
 from .every import *
+from .fill import *
