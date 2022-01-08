@@ -20,3 +20,4 @@ from .drop_while import *
 from .every import *
 from .fill import *
 from .find import *
+from .find_all import *

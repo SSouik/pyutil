@@ -18,48 +18,6 @@ from itertools import islice
 #                                                      #
 ########################################################
 
-def find_all(seq, func, start = 0, end = None):
-  '''
-  Description
-  ----------
-  Find all the values in the sequence that satisfy the predicate function.
-
-  Parameters
-  ----------
-  seq : (list or tuple or set or dict) - sequence to interate\n
-  func : callable - predicate function to apply each iteration\n
-  start : int, optional - start index (default is 0)\n
-  end : int, optional - end index (not included) (default is None = len(seq))
-
-  Returns
-  ----------
-  python 2:\n
-  list - a list of all values that satisfy the predicate function\n
-  
-  python 3:\n
-  generator - a generator of all values that satisfy the predicate function
-
-  Examples
-  ----------
-  python 2:
-  >>> lst = [1, 2, 3, 4, 5]
-  >>> find_all(lst, lambda x: x % 2 == 0)
-  -> [2, 4]
-  >>> find_all(lst, lambda x: x % 2 == 0, 2)
-  -> [4]
-
-  python 3:
-  >>> lst = [1, 2, 3, 4, 5]
-  >>> find_all(lst, lambda x: x % 2 == 0)
-  -> [2, 4] <generator>
-  >>> find_all(lst, lambda x: x % 2 == 0, 2)
-  -> [4] <generator>
-  '''
-  if end == None:
-    end = len(seq)
-
-  return filter(func, islice(seq, start, end))
-
 def find_index(seq, func, from_index = 0):
   '''
   Description
