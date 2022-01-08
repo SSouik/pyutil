@@ -21,3 +21,4 @@ from .every import *
 from .fill import *
 from .find import *
 from .find_all import *
+from .find_index import *
