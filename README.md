@@ -32,7 +32,25 @@ Local development can be done with any version of Python3 after `3.4` but the pr
     python3 -m venv .venv
     ```
 
-2. Activate the virtual environment
+2. Configure `pip` to use the AWS CodeArtifact Repository for Python packages
+    * Create a `pip.conf` file at `.venv/pip.conf`
+        ```bash
+        touch .venv/pip.conf
+        ```
+    * Add the repository url
+        ```bash
+        echo "[global]" >> .venv/pip.conf
+        echo "index-url = https://aws:{auth-token}@ss-480277082058.d.codeartifact.us-east-2.amazonaws.com/pypi/python/simple" >> .venv/pip.conf
+        ```
+    * Replace `{auth-token}` with your AWS CodeArtifact bearer token
+        ```bash
+        aws codeartifact get-authorization-token --domain ss --domain-owner 480277082058 --query authorizationToken --output text
+        ```
+        This will output your bearer token into the terminal. Copy it and replace `{auth-token}` in `.venv/pip.conf` with the token.
+    > This assumes that you have the AWS CLI configured and set up locally already
+
+
+3. Activate the virtual environment
 
     Linux/macOS
     ```bash
@@ -43,7 +61,7 @@ Local development can be done with any version of Python3 after `3.4` but the pr
     .venv/Scripts/activate
     ```
 
-3. Install dependencies
+4. Install dependencies
     ```bash
     python -m pip install -r requirements.txt
     ```
