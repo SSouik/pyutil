@@ -24,3 +24,4 @@ from .find_all import *
 from .find_index import *
 from .groupby import *
 from .head import *
+from .index_of import *
