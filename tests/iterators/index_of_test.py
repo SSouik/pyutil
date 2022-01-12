@@ -111,15 +111,18 @@ def test_index_of_with_string_from_index_is_negative_not_found():
     expected = -1
     assert actual == expected
 
+
 def test_index_of_when_from_index_is_out_of_range():
     actual = index_of(sample_data, 12)
     expected = -1
     assert actual == expected
 
+
 def test_index_of_when_from_index_is_out_of_range_and_negative():
     actual = index_of(sample_data, -12)
     expected = -1
     assert actual == expected
+
 
 def test_index_of_when_seq_is_not_valid():
     with pytest.raises(TypeError):

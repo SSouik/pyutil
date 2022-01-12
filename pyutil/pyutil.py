@@ -18,28 +18,6 @@ from itertools import islice
 #                                                      #
 ########################################################
 
-def initial(seq):
-  '''
-  Description
-  ----------
-  Create a generator of all the values in a sequence except the last.
-
-  Parameters
-  ----------
-  seq : (list or tuple or set or string) - sequence to take values from
-
-  Returns
-  ----------
-  generator - a generator containing all values of the sequence but the last
-
-  Example
-  ----------
-  >>> lst = [1, 2, 3, 4, 5]
-  >>> initial(lst)
-  -> [2, 3, 4, 5] <generator>
-  '''
-  return islice(seq, 0, len(seq)-1)
-
 def intersection(*seqs):
   '''
   Description
