@@ -1,3 +1,4 @@
+import pytest
 from pyutil import head
 
 
@@ -35,3 +36,8 @@ def test_head_with_string():
     actual = head("foo")
     expected = "f"
     assert actual == expected
+
+
+def test_last_when_seq_is_not_valid():
+    with pytest.raises(TypeError):
+        head(123)

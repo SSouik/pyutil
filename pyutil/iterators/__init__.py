@@ -28,3 +28,5 @@ from .index_of import *
 from .initial import *
 from .intersection import *
 from .join import *
+from .last import *
+from .merge import *
