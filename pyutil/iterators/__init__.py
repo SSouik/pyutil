@@ -23,3 +23,10 @@ from .find import *
 from .find_all import *
 from .find_index import *
 from .groupby import *
+from .head import *
+from .index_of import *
+from .initial import *
+from .intersection import *
+from .join import *
+from .last import *
+from .merge import *
