@@ -1,0 +1,49 @@
+name: Pull Request Labeler
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  labeler:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      # - name: Dump GitHub Event
+      #   run: |
+      #     echo ${{ toJson(github.event) }}
+      - name: Add label to Pull Request
+        uses: actions/github-script@v5
+        # env:
+        #   COMMITS: ${{ github.event.commits }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          result-encoding: string
+          script: |
+            let labels = []
+
+            const response = await github.request(context.payload.pull_request.commits_url);
+            
+            console.log(response);
+
+            const commits = response.data;
+            
+            commits.forEach(data => {
+              const message = data.commit.message;
+
+              if (message.startsWith('refactor:')) {
+                labels.push('refactor');
+              }
+
+              if (message.startsWith('ci:')) {
+                labels.push('ci');
+              }
+            });
+            
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: labels
+            });
