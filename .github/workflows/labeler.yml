@@ -32,11 +32,11 @@ jobs:
             commits.forEach(data => {
               const message = data.commit.message;
 
-              if (message.startsWith('refactor:')) {
+              if (message.startsWith('refactor')) {
                 labels.push('refactor');
               }
 
-              if (message.startsWith('ci:')) {
+              if (message.startsWith('ci')) {
                 labels.push('ci');
               }
             });
