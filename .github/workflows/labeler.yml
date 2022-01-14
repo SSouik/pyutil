@@ -28,16 +28,58 @@ jobs:
             console.log(response);
 
             const commits = response.data;
-            
+
             commits.forEach(data => {
               const message = data.commit.message;
 
-              if (message.startsWith('refactor')) {
-                labels.push('refactor');
+              if (message.startsWith('chore')) {
+                labels.push('chore');
+                return;
               }
 
               if (message.startsWith('ci')) {
                 labels.push('ci');
+                return;
+              }
+
+              if (message.startsWith('docs')) {
+                labels.push('documentation');
+                return;
+              }
+
+              if (message.startsWith('feat')) {
+                labels.push('enhancement');
+                return;
+              }
+
+              if (message.startsWith('fix')) {
+                labels.push('bug');
+                return;
+              }
+
+              if (message.startsWith('perf')) {
+                labels.push('performance');
+                return;
+              }
+
+              if (message.startsWith('refactor')) {
+                labels.push('refactor');
+                return;
+              }
+
+              if (message.startsWith('revert')) {
+                labels.push('revert');
+                return;
+              }
+
+              if (message.startsWith('style')) {
+                labels.push('style');
+                return;
+              }
+
+              if (message.startsWith('test')) {
+                labels.push('test');
+                return;
               }
             });
             
