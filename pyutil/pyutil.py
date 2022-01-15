@@ -18,43 +18,6 @@ from itertools import islice
 #                                                      #
 ########################################################
 
-def pull_all_at(lst, pull_indices):
-  '''
-  Description
-  ----------
-  Remove values at all specified indices.\n
-  Mutates the list.
-
-  Parameters
-  ----------
-  lst : list - list to remove values from\n
-  pull_indices : (list or tuple or set) - sequence of indices to remove
-
-  Returns
-  ----------
-  None
-
-  Example
-  ----------
-  >>> lst = [1, 2, 3, 4, 5, 6, 7]
-  >>> pull_at(lst, [0, 2, 4])
-  >>> lst
-  -> [2, 4, 6, 7]
-  '''
-  lst_len = len(lst)
-  offset = 0
-  i = 0
-
-  for index in pull_indices:
-    if index <= lst_len-1:
-      del lst[index-offset]
-      try:
-        if index < pull_indices[i+1]:
-          offset = offset + 1
-      except:
-        pass
-      i = i + 1
-
 def remove(seq, *remove_vals):
   '''
   Description
