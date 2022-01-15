@@ -33,5 +33,8 @@ from .merge import *
 from .pipe import *
 from .pull import *
 from .pull_all import *
+<<<<<<< HEAD
 from .pull_at import *
 from .pull_all_at import *
+=======
+>>>>>>> 9e590ee... refactor(pull_all): moved pull_all to its own file
