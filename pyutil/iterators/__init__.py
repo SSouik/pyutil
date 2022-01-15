@@ -32,3 +32,4 @@ from .last import *
 from .merge import *
 from .pipe import *
 from .pull import *
+from .pull_all import *

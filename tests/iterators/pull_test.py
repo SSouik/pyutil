@@ -1,4 +1,3 @@
-from unittest import expectedFailure
 import pytest
 from pyutil import pull
 
