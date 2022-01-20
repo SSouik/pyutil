@@ -39,6 +39,6 @@ def remove_at(seq, *remove_indices):
 
     index = 0
     while index < len(seq):
-        if not index in remove_indices:
+        if index not in remove_indices:
             yield seq[index]
         index = index + 1

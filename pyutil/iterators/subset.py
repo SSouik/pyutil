@@ -36,7 +36,7 @@ def subset(seq, start=0, end=None):
     if not isinstance(seq, (list, tuple)):
         raise TypeError("param 'seq' must be a list or tuple")
 
-    if end == None:
+    if end is None:
         end = len(seq)
 
     if start < 0 or end < 0 or start > end:
