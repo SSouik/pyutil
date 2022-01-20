@@ -66,11 +66,11 @@ def test_pull_at_seq_is_not_a_list():
         pull_at("foo", 1)
 
 
-def test_pull_at_all_when_pull_vals_is_not_valid():
+def test_pull_at_when_pull_indices_is_not_valid():
     with pytest.raises(ValueError):
         pull_at([], "foo")
 
 
-def test_pull_at_all_when_pull_vals_is_not_valid_2():
+def test_pull_at_when_pull_indices_is_not_valid_2():
     with pytest.raises(ValueError):
         pull_at([], 1, "foo")
