@@ -18,33 +18,6 @@ from itertools import islice
 #                                                      #
 ########################################################
 
-def remove_at(seq, *remove_indices):
-  '''
-  Description
-  ----------
-  Remove values at specified indices from the sequence.
-
-  Parameters
-  ----------
-  seq : (list or tuple) - sequence to remove values from\n
-  *remove_indices : int - indices to remove
-
-  Returns
-  ----------
-  generator - a generator containing all values not removed from the sequence
-
-  Example
-  ----------
-  >>> tup = ('a', 'b', 'c', 'd', 'e', 'f', 'g')
-  >>> remove_at(tup, 0, 3, 1, 5)
-  >>> ['c', 'e', 'g'] <generator>
-  '''
-  index = 0
-  while index < len(seq):
-    if not index in remove_indices:
-      yield seq[index]
-    index = index + 1
-
 def remove_all_at(seq, remove_indices):
   '''
   Description
