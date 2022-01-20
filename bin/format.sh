@@ -1,1 +1,1 @@
-python -m black ./tests ./pyutil/iterators  ./pyutil/dictionary
+python -m black ./tests ./pyutil
