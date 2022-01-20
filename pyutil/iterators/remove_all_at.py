@@ -3,11 +3,11 @@ Author Samuel Souik
 
 License MIT.
 
-remove_at.py
+remove_all_at.py
 """
 
 
-def remove_at(seq, *remove_indices):
+def remove_all_at(seq, remove_indices):
     """
     Description
     ----------
@@ -16,7 +16,7 @@ def remove_at(seq, *remove_indices):
     Parameters
     ----------
     seq : (list or tuple) - sequence to remove values from\n
-    *remove_indices : int - indices to remove
+    remove_indices : (list or tuple or set) - sequence of indices to remove
 
     Returns
     ----------
@@ -25,11 +25,14 @@ def remove_at(seq, *remove_indices):
     Example
     ----------
     >>> tup = ('a', 'b', 'c', 'd', 'e', 'f', 'g')
-    >>> remove_at(tup, 0, 3, 1, 5)
+    >>> remove_all_at(tup, [0, 3, 1, 5])
     >>> ['c', 'e', 'g'] <generator>
     """
     if not isinstance(seq, (list, tuple)):
         raise TypeError("param 'seq' must be a list or tuple")
+
+    if not isinstance(remove_indices, (list, tuple, set)):
+        raise TypeError("param 'remove_indices' must be a list, tuple, or set")
 
     for index in remove_indices:
         if not isinstance(index, int) or index < 0:

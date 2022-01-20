@@ -76,6 +76,6 @@ def test_pull_all_at_all_when_pull_indices_is_not_valid_2():
         pull_all_at([], "foo")
 
 
-def test_pull_all_at_all_when_pull_vals_is_not_valid_2():
+def test_pull_all_at_all_when_pull_indices_is_not_valid_3():
     with pytest.raises(ValueError):
         pull_all_at([], [1, "foo"])
