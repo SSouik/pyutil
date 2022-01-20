@@ -9,8 +9,6 @@
   modules itertools and toolz.
 '''
 
-from itertools import islice
-
 ########################################################
 #                                                      #
 # The following functions operate on Python sequences. #
@@ -19,33 +17,6 @@ from itertools import islice
 ########################################################
 
 # dictionary methods
-
-def assign(target, *sources):
-  '''
-  Description
-  ----------
-  Assign all values from the sources into the target dictioanary.\n
-  Mutates target dictionary.
-
-  Parameters
-  ----------
-  target : dict - target dictionary to assign values to\n
-  *sources : dict - dictionaries to pull keys and vlaues from
-
-  Returns
-  ----------
-  dict - dictionary containing keys and values from target and *sources
-
-  Example
-  ----------
-  >>> assign({}, {'a': 1, 'b': 2})
-  -> {'a': 1, 'b': 2}
-  '''
-  for dct in sources:
-    for key in dct:
-      target[key] = dct[key]
-  return target
-
 def entries(dct):
   '''
   Description
