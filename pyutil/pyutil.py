@@ -18,35 +18,6 @@ from itertools import islice
 #                                                      #
 ########################################################
 
-def subset(seq, start = 0, end = None):
-  '''
-  Description
-  ----------
-  Create a subset of the sequence.
-
-  Parameters
-  ----------
-  seq : (list or tuple or set or dict) - sequence of values to subset\n
-  start : int, optional - start index (default is 0)\n
-  end : int, optional - end index (not included) (default is None = len(seq))
-
-  Returns
-  ----------
-  generator - generator of the subset of values
-
-  Examples
-  ----------
-  >>> lst = [1, 2, 3, 4, 5, 6, 7]
-  >>> subset(lst, 2)
-  -> [3, 4, 5, 6, 7] <generator>
-  >>> subset(lst, 3, 5)
-  -> [4, 5] <generator>
-  '''
-  if end == None:
-    end = len(seq)
-  
-  return islice(seq, start, end)
-
 def some(seq, func):
   '''
   Description

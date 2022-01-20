@@ -39,3 +39,4 @@ from .remove import *
 from .remove_all import *
 from .remove_at import *
 from .remove_all_at import *
+from .subset import *
