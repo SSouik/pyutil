@@ -18,30 +18,6 @@ from itertools import islice
 #                                                      #
 ########################################################
 
-def remove(seq, *remove_vals):
-  '''
-  Description
-  ----------
-  Remove values from the sequence.
-
-  Parameters
-  ----------
-  seq : (list or tuple or set or dict) - sequence to remove values from\n
-  *remove_vals : any - values to remove
-
-  Returns
-  ----------
-  generator - generator containing all values not removed from the sequence
-
-  Example
-  ----------
-  >>> remove([1, 2, 3, 4], 2, 1)
-  -> [3, 4] <generator>
-  '''
-  for item in seq:
-    if not item in remove_vals:
-      yield item
-
 def remove_all(seq, remove_vals):
   '''
   Description
