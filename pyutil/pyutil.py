@@ -19,35 +19,6 @@
 # string methods
 
 
-def repeat(string, n):
-    """
-    Description
-    ----------
-    Repeat a string 'n' number of times.
-
-    Parameters
-    ----------
-    string : str - string to repeat
-    n : int - number of times to repeat
-
-    Returns
-    ----------
-    str - string consisting of param string repeated 'n' times
-
-    Example
-    ----------
-    >>> repeat('abc', 3)
-    -> 'abcabcabc'
-    """
-    if not type(n) is int:
-        raise TypeError("param 'n' must be an integer: 0 <= n <= sys.maxsize")
-
-    n_str = ""
-    for i in range(n):
-        n_str = n_str + string
-    return n_str
-
-
 def replace(string, target, replacement, n=None):
     """
     Description
