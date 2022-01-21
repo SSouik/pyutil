@@ -34,7 +34,7 @@ def repeat(string, n):
         raise TypeError("param 'n' must be an integer: 0 <= n <= sys.maxsize")
 
     if n < 0:
-        raise ValueError("param 'n' must be in ranges 0 <= n <= sys.maxsize")
+        raise ValueError("param 'n' must be in range 0 <= n <= sys.maxsize")
 
     n_str = ""
     for _ in range(n):
