@@ -19,60 +19,6 @@
 # string methods
 
 
-def str_count(string, target, start=0, end=None):
-    """
-    Description
-    ----------
-    Count the number of times a target string appears in a string.
-
-    Parameters
-    ----------
-    string : str - string to iterate\n
-    target : str - string to search for\n
-    start : int, optional - start index (default is 0)\n
-    end : int, optional - end index (default is None = len(string))
-
-    Returns
-    ----------
-    int - number of times target appears in string
-
-    Examples
-    ----------
-    >>> s = 'abcabcabc'
-    >>> str_count(s, 'a')
-    -> 3
-    >>> str_count(s, 'a', 2)
-    -> 2
-    """
-    if end == None:
-        end = len(string)
-
-    if start < 0:
-        raise ValueError("Start index must be an integer: 0 <= x <= sys.maxsize")
-
-    if end < 0:
-        raise ValueError("End index must be an integer: 0 <= x <= sys.maxsize")
-
-    if start >= end:
-        return 0
-
-    n_str = string
-    str_len = len(target)
-    count = 0
-    while start < end:
-        try:
-            stop = start + str_len
-            if stop > end:
-                raise IndexError("End reached")
-
-            if n_str[start:stop] == target:
-                count = count + 1
-            start = start + 1
-        except:
-            return count
-    return count
-
-
 def endswith(string, target):
     """
     Description

@@ -49,7 +49,7 @@ def find(seq, func, start=0, end=None):
     if start < 0 or end < 0 or start > end:
         raise ValueError(
             "params 'start' and 'end' must be greater than or equal to 0",
-            "'start' must be greater than or equal to 'end'",
+            "'end' must be greater than or equal to 'start'",
         )
 
     for item in islice(seq, start, end):

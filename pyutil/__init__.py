@@ -11,3 +11,4 @@ modules itertools and toolz.
 from .pyutil import *
 from .iterators import *
 from .dictionary import *
+from .string import *
