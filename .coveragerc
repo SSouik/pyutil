@@ -1,5 +1,5 @@
 [run]
-omit = pyutil/pyutil.py,pyutil/__init__.py
+omit = pyutil/__init__.py
 branch = True
 source = pyutil
 

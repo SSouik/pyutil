@@ -8,6 +8,6 @@ Functional methods provided operate on lists, tuples, sets, dictionaries, and st
 The module was inspired by the JavaScript library lodash and Python
 modules itertools and toolz.
 """
-from .pyutil import *
 from .iterators import *
 from .dictionary import *
+from .string import *
