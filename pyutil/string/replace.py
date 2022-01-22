@@ -57,23 +57,7 @@ def replace(string, target, replacement, n=None):
         return string
 
     if n is None:
-        count = None
-
-    if count is None:
-        while True:
-            try:
-                stop = i + str_len
-                if stop > len(temp_str):
-                    raise IndexError("Stop greater than length of string")
-
-                if temp_str[i:stop] == target:
-                    n_str = n_str + replacement
-                    i = stop
-                else:
-                    n_str = n_str + temp_str[i]
-                    i = i + 1
-            except:
-                return n_str + temp_str[i::]
+        n = len(string)
 
     while count < n:
         try:
@@ -88,6 +72,6 @@ def replace(string, target, replacement, n=None):
             else:
                 n_str = n_str + temp_str[i]
                 i = i + 1
-        except:
+        except IndexError:
             return n_str + temp_str[i::]
     return n_str + temp_str[i::]

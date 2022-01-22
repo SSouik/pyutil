@@ -67,6 +67,6 @@ def str_count(string, target, start=0, end=None):
             if n_str[start:stop] == target:
                 count = count + 1
             start = start + 1
-        except:
+        except IndexError:
             return count
     return count
