@@ -1,11 +1,12 @@
-from setuptools import setup, find_packages
+from setuptools import setup
+from pyutil import __version__
 
 with open("README.md", "r") as fh:
   long_description = fh.read()
 
 setup(
   name = "pyutil", 
-  version = "1.0.0",
+  version = __version__,
   author = "Samuel Souik",
   author_email = "me@samuelsouik.com", 
   description = "Collection of utility functions to be used in Python projects",
