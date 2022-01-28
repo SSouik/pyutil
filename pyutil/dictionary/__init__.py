@@ -8,3 +8,4 @@ This module contains methods which operate on dictionaries
 
 from .assign import *
 from .entries import *
+from .get import *
