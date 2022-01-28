@@ -9,7 +9,7 @@ The module was inspired by the JavaScript library lodash and Python
 modules itertools and toolz.
 """
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 
 from .iterators import *
 from .dictionary import *
